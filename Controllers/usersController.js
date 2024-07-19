@@ -40,7 +40,7 @@ const userModel = require('../Models/usersModel');
           res.status(400).send({ message: err.message });
     }
    };
-   
+
 // Delete User:
   const deleteUser = async (req, res) => {
     const { uid } = req.body;
@@ -55,6 +55,34 @@ const userModel = require('../Models/usersModel');
         res.status(500).send({ message: err.message });
   }
 };
+
+
+const uploadProcessData = async () => {
+    const dataToLoad = {
+        users: [
+            {
+                email: '',
+                password: '123456',
+                displayName: 'Admin',
+                role: 'admin'
+            },
+            {
+                email: '',
+                password: '123456',
+                displayName: 'User',
+                role: 'user'
+            }
+        ]
+    }
+
+    try {
+        const document = doc(firestore, 'DB Name', 'Unique ID for the document');
+        await setDoc(document, dataToLoad);
+        return dataToLoad;
+    }catch (err) {
+        console.log(err);
+    }
+}
 
  module.exports = {
     registerUser,
