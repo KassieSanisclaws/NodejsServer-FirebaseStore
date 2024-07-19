@@ -74,7 +74,6 @@ const uploadProcessData = async () => {
             }
         ]
     }
-
     try {
         const document = doc(firestore, 'DB Name', 'Unique ID for the document');
         await setDoc(document, dataToLoad);
