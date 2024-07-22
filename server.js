@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const userRouter = require('./Routes/usersRoutes');
 
 // Load environment variables:
 dotenv.config();
@@ -23,6 +24,9 @@ firebaseServer.use((req, res, next) => {
 });
 
 // Routes:
+firebaseServer.use("/users", userRouter);
+
+// Server Launch: 
 firebaseServer.get("/", (req, res) => {
   res.send("Server Running!"); 
 });
