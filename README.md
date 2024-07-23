@@ -17,4 +17,36 @@ This project is a Node.js server application that manages user registrations, up
 
    ```sh
    git clone https://github.com/KassieSanisclaws/NodejsServer-FirebaseStore.git
-  
+
+
+## Environment Setup<dotenv> EXAMPLE:
+- FIREBASE_PROJECT_ID="your-firebase-project-id"
+- FIREBASE_CLIENT_EMAIL="your-firebase-client-email"
+- FIREBASE_PRIVATE_KEY="your-firebase-private-key"
+- JWT_SECRET="your_jwt_secret"
+
+
+## POSTMAN<RegisterBody> EXAMPLE:
+{
+  "email": "user@example.com",
+  "password": "password123",
+  "displayName": "User Display Name",
+  "firstname": "First Name",
+  "lastname": "Last Name"
+}
+
+## POSTMAN<LoginBody> EXAMPLE:
+{
+  "email": "user@example.com",
+  "password": "password123",
+}
+
+## POSTMAN<updateUserBody> EXAMPLE:
+{
+  "firstname": "Jason example",
+}
+
+## POSTMAN<DeleteBody> EXAMPLE:
+{
+  in route /delete/:id of the document in the firestor you are targeting to delete.
+}
